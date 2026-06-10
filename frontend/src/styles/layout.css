@@ -1,0 +1,257 @@
+/* =========================================
+   APP LAYOUT
+========================================= */
+
+.app-layout {
+
+  display: flex;
+
+  min-height: 100vh;
+
+  background: #f1f5f9;
+
+  overflow-x: hidden;
+}
+
+/* =========================================
+   PAGE CONTAINER
+========================================= */
+
+.page-container {
+
+  flex: 1;
+
+  margin-left: 290px;
+
+  width: calc(100% - 290px);
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  overflow-y: auto;
+
+  background: #f5f7fb;
+
+  padding: 28px 32px;
+
+  box-sizing: border-box;
+}
+
+/* =========================================
+   PAGE CONTENT
+========================================= */
+
+.page-content {
+
+  width: 100%;
+
+  max-width: 100%;
+
+  margin: 0 auto;
+}
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.page-header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-bottom: 20px;
+
+  flex-wrap: wrap;
+}
+
+.page-title {
+
+  font-size: 42px;
+
+  font-weight: 800;
+
+  color: #0f172a;
+
+  line-height: 1.1;
+
+  margin: 0;
+}
+
+.page-subtitle {
+
+  font-size: 16px;
+
+  color: #64748b;
+
+  margin-top: 6px;
+}
+
+/* =========================================
+   GRID SYSTEM
+========================================= */
+
+.grid-4 {
+
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+.grid-3 {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+.grid-2 {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+/* =========================================
+   GLOBAL CARD
+========================================= */
+
+.global-card {
+
+  background: white;
+
+  border-radius: 24px;
+
+  border: 1px solid #e2e8f0;
+
+  padding: 22px;
+
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+/* =========================================
+   SECTION SPACING
+========================================= */
+
+.section-spacing {
+
+  margin-top: 20px;
+}
+
+/* =========================================
+   TABLE FIXES
+========================================= */
+
+table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.table-wrapper {
+
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1400px) {
+
+  .page-container {
+
+    margin-left: 260px;
+
+    width: calc(100% - 260px);
+  }
+}
+
+@media (max-width: 1200px) {
+
+  .grid-4 {
+
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .page-title {
+
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 900px) {
+
+  .page-container {
+
+    margin-left: 78px;
+
+    width: calc(100% - 78px);
+
+    padding: 20px;
+  }
+
+  .grid-4,
+  .grid-3,
+  .grid-2 {
+
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+
+    font-size: 28px;
+  }
+
+  .page-subtitle {
+
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .page-container {
+
+    margin-left: 0;
+
+    width: 100%;
+
+    padding: 16px;
+  }
+
+  .page-header {
+
+    align-items: flex-start;
+  }
+
+  .page-title {
+
+    font-size: 24px;
+  }
+
+  .global-card {
+
+    padding: 18px;
+  }
+}

@@ -1,0 +1,554 @@
+.brief-page {
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  padding: 16px 24px;
+
+   display: flex;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  background:
+    linear-gradient(
+      180deg,
+      #edf2ff 0%,
+      #f8fafc 100%
+    );
+
+  overflow-x: hidden;
+}
+
+
+
+.brief-header{
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+.brief-header h1 {
+
+  font-size: 42px;
+
+  font-weight: 900;
+
+  letter-spacing: -1px;
+
+  color: #0f172a;
+
+  margin-bottom: 6px;
+}
+
+.brief-header p {
+
+  color: #475569;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 650px;
+}
+/* =========================
+   LAYOUT
+========================= */
+
+.brief-layout {
+
+  width: 100%;
+
+  max-width: 1105px;
+
+  padding-top: 0px;
+
+  margin: 0 auto;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.brief-card {
+
+  width: 100%;
+
+  background:
+    rgba(255,255,255,0.94);
+
+  backdrop-filter: blur(16px);
+
+  border-radius: 26px;
+
+  padding: 32px;
+
+  border:
+    1px solid rgba(226,232,240,0.9);
+
+  box-shadow:
+    0 12px 30px rgba(15,23,42,0.08);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.brief-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: -120px;
+
+  right: -120px;
+
+  width: 240px;
+
+  height: 240px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(139,92,246,0.10);
+
+  filter: blur(50px);
+
+  z-index: 0;
+}
+
+
+.form-group input,
+.form-group textarea {
+  background: #ffffff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  transform: translateY(-1px);
+}
+/* =========================
+   GRID
+========================= */
+
+.brief-grid {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 20px;
+
+  position: relative;
+
+  z-index: 1;
+}
+
+/* =========================
+   FORM GROUP
+========================= */
+
+.form-group {
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+.form-group label {
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  margin-bottom: 8px;
+
+  color: #475569;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+  width: 100%;
+
+  background: #ffffff;
+
+  border:
+    1px solid #dbe4f0;
+
+  border-radius: 12px;
+
+  padding: 0 16px;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  outline: none;
+
+  color: #111827;
+
+  box-sizing: border-box;
+
+  transition: all 0.25s ease;
+
+  box-shadow:
+    0 2px 4px rgba(15,23,42,0.03);
+}
+
+.form-group input,
+.form-group select {
+
+  height: 56px;
+  
+}
+
+.form-group textarea {
+
+  height: 100px;
+
+  min-height: 100px;
+
+  resize: none;
+
+  padding-top: 14px;
+
+  padding-bottom: 14px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+
+  color: #94a3b8;
+}
+
+/* =========================
+   HOVER
+========================= */
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+
+  border-color: #c4b5fd;
+}
+
+/* =========================
+   FOCUS
+========================= */
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+  border-color: #8b5cf6;
+
+  box-shadow:
+    0 0 0 4px rgba(139,92,246,0.10);
+}
+
+/* =========================
+   SELECT
+========================= */
+
+.form-group select {
+
+  cursor: pointer;
+
+  background: #ffffff;
+}
+
+/* =========================
+   DATE
+========================= */
+
+input[type="date"] {
+
+  color-scheme: light;
+}
+
+/* =========================
+   FULL WIDTH
+========================= */
+
+.full-width {
+
+  margin-top: 18px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.button-row {
+
+  margin-top: 12px;
+
+  display: flex;
+
+  justify-content: flex-end;
+}
+
+.button-row button {
+
+  border: none;
+
+  height: 56px;
+
+  min-width: 230px;
+
+  padding: 0 24px;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #8b5cf6
+    );
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+
+  box-shadow:
+    0 10px 24px rgba(124,58,237,0.24);
+}
+
+.button-row button:hover {
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 16px 34px rgba(124,58,237,0.30);
+}
+
+.button-row button:disabled {
+
+  opacity: 0.7;
+
+  cursor: not-allowed;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.ai-loading-container {
+
+  margin-top: 24px;
+}
+
+.ai-loading-card {
+
+  background:
+    linear-gradient(
+      135deg,
+      #111827,
+      #1e293b
+    );
+
+  border-radius: 24px;
+
+  padding: 24px;
+
+  color: white;
+
+  overflow: hidden;
+
+  position: relative;
+
+  box-shadow:
+    0 18px 40px rgba(15,23,42,0.18);
+}
+
+.ai-loader-icon {
+
+  width: 68px;
+
+  height: 68px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #8b5cf6,
+      #6366f1
+    );
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 26px;
+
+  margin-bottom: 18px;
+}
+
+.ai-loading-card h2 {
+
+  font-size: 26px;
+
+  margin-bottom: 8px;
+
+  font-weight: 800;
+}
+
+.ai-loading-card p {
+
+  color:
+    rgba(255,255,255,0.75);
+
+  margin-bottom: 20px;
+
+  font-size: 14px;
+}
+
+/* =========================
+   LOADING GRID
+========================= */
+
+.ai-loading-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap: 12px;
+
+  margin-bottom: 20px;
+}
+
+.ai-loading-box {
+
+  background:
+    rgba(255,255,255,0.06);
+
+  border-radius: 16px;
+
+  padding: 14px;
+
+  text-align: center;
+}
+
+.ai-loading-box svg {
+
+  font-size: 18px;
+
+  margin-bottom: 8px;
+
+  color: #a855f7;
+}
+
+.ai-loading-box span {
+
+  font-size: 12px;
+
+  color:
+    rgba(255,255,255,0.82);
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.ai-progress {
+
+  width: 100%;
+
+  height: 7px;
+
+  border-radius: 999px;
+
+  overflow: hidden;
+
+  background:
+    rgba(255,255,255,0.08);
+}
+
+.ai-progress-fill {
+
+  width: 100%;
+
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #8b5cf6,
+      #ffffff
+    );
+
+  animation:
+    progressMove 2s infinite linear;
+}
+
+@keyframes progressMove {
+
+  0% {
+
+    transform:
+      translateX(-20%);
+  }
+
+  100% {
+
+    transform:
+      translateX(20%);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .brief-page {
+
+    padding: 16px;
+  }
+
+  .brief-card {
+
+    padding: 20px;
+  }
+
+  .brief-grid {
+
+    grid-template-columns: 1fr;
+  }
+
+  .button-row {
+
+    justify-content: stretch;
+  }
+
+  .button-row button {
+
+    width: 100%;
+
+    min-width: 100%;
+  }
+
+  .ai-loading-grid {
+
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,523 @@
+/* =========================
+   GLOBAL STAT CARD
+========================= */
+
+.global-stat-card {
+
+  background: var(--card-bg);
+
+  border-radius: var(--radius-lg);
+
+  padding: var(--space-md);
+
+  border: 1px solid var(--border-color);
+
+  transition: var(--transition);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.global-stat-card:hover {
+
+  transform: translateY(-4px);
+
+  box-shadow: var(--shadow-md);
+}
+
+.global-stat-icon {
+
+  width: 56px;
+
+  height: 56px;
+
+  border-radius: 16px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  color: white;
+
+  font-size: 22px;
+
+  margin-bottom: 18px;
+}
+
+.global-stat-card h4 {
+
+  font-size: 15px;
+
+  color: var(--text-secondary);
+
+  margin-bottom: 10px;
+}
+
+.global-stat-card h2 {
+
+  font-size: 30px;
+
+  font-weight: 800;
+
+  margin-bottom: 10px;
+
+  color: var(--text-primary);
+}
+
+.global-stat-card p {
+
+  color: var(--text-secondary);
+
+  line-height: 1.6;
+
+  font-size: 14px;
+}
+
+/* =========================
+   COLORS
+========================= */
+
+.purple {
+  background: var(--primary);
+}
+
+.green {
+  background: var(--success);
+}
+
+.blue {
+  background: var(--info);
+}
+
+.orange {
+  background: #f97316;
+}
+
+.red {
+  background: var(--danger);
+}
+
+/* =========================
+   SECTION CARD
+========================= */
+
+.section-card {
+
+  background: var(--card-bg);
+
+  border-radius: var(--radius-lg);
+
+  border: 1px solid var(--border-color);
+
+  padding: 24px;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.section-card-header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 24px;
+
+  gap: 20px;
+}
+
+.section-card-header h3 {
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  color: var(--text-primary);
+}
+
+.section-card-header span {
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-state {
+
+  background: var(--card-bg);
+
+  border-radius: var(--radius-lg);
+
+  padding: 80px 20px;
+
+  text-align: center;
+
+  border: 1px solid var(--border-color);
+}
+
+.empty-state h2 {
+
+  font-size: 28px;
+
+  margin-bottom: 12px;
+
+  color: var(--text-primary);
+}
+
+.empty-state p {
+
+  color: var(--text-secondary);
+
+  font-size: 15px;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.loading-container {
+
+  width: 100%;
+
+  min-height: 300px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+.loading-spinner {
+
+  width: 60px;
+
+  height: 60px;
+
+  border-radius: 50%;
+
+  border: 5px solid var(--border-color);
+
+  border-top: 5px solid var(--primary);
+
+  animation: spin 1s linear infinite;
+}
+
+.loading-container p {
+
+  color: var(--text-secondary);
+
+  font-weight: 600;
+}
+
+@keyframes spin {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.page-header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+
+  margin-bottom: 28px;
+
+  flex-wrap: wrap;
+}
+
+.page-header-title {
+
+  font-size: 36px;
+
+  font-weight: 800;
+
+  color: var(--text-primary);
+
+  margin-bottom: 8px;
+}
+
+.page-header-subtitle {
+
+  color: var(--text-secondary);
+
+  font-size: 15px;
+}
+
+/* =========================
+   PRIMARY BUTTON
+========================= */
+
+.primary-btn {
+
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-light)
+  );
+
+  color: white;
+
+  border: none;
+
+  border-radius: 14px;
+
+  padding: 14px 22px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: var(--transition);
+
+  box-shadow: var(--shadow-purple);
+}
+
+.primary-btn:hover {
+
+  transform: translateY(-2px);
+}
+
+/* =========================
+   SECONDARY BUTTON
+========================= */
+
+.secondary-btn {
+
+  background: white;
+
+  color: var(--text-primary);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 14px;
+
+  padding: 14px 22px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+.secondary-btn:hover {
+
+  background: #f8fafc;
+}
+
+/* =========================
+   DANGER BUTTON
+========================= */
+
+.danger-btn {
+
+  background: #fee2e2;
+
+  color: #dc2626;
+
+  border: none;
+
+  border-radius: 14px;
+
+  padding: 14px 22px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+.danger-btn:hover {
+
+  background: #fecaca;
+}
+
+/* =========================
+   GLOBAL TABLE SYSTEM
+========================= */
+
+.table-container {
+
+  width: 100%;
+
+  overflow-x: auto;
+
+  border-radius: 22px;
+
+  border: 1px solid var(--border-color);
+
+  background: white;
+}
+
+.global-table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 900px;
+}
+
+.global-table thead {
+
+  background: #f8fafc;
+}
+
+.global-table th {
+
+  text-align: left;
+
+  padding: 18px 22px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  color: var(--text-secondary);
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+.global-table td {
+
+  padding: 20px 22px;
+
+  border-bottom: 1px solid #f1f5f9;
+
+  font-size: 15px;
+
+  color: var(--text-primary);
+}
+
+.global-table tbody tr {
+
+  transition: 0.25s ease;
+}
+
+.global-table tbody tr:hover {
+
+  background: #faf5ff;
+}
+
+/* =========================
+   STATUS BADGES
+========================= */
+
+.status-badge {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.status-success {
+
+  background: #dcfce7;
+
+  color: #15803d;
+}
+
+.status-warning {
+
+  background: #fef3c7;
+
+  color: #b45309;
+}
+
+.status-danger {
+
+  background: #fee2e2;
+
+  color: #b91c1c;
+}
+
+.status-info {
+
+  background: #dbeafe;
+
+  color: #1d4ed8;
+}
+
+/* =========================
+   UTILITY CLASSES
+========================= */
+
+.capitalize {
+
+  text-transform: capitalize;
+}
+
+.text-center {
+
+  text-align: center;
+}
+
+.full-width {
+
+  width: 100%;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .page-header {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .global-stat-card {
+
+    padding: 18px;
+  }
+
+  .section-card {
+
+    padding: 18px;
+  }
+
+  .page-header-title {
+
+    font-size: 28px;
+  }
+}

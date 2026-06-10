@@ -1,0 +1,177 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,
+body,
+#root{
+  min-height:100%;
+}
+
+body{
+
+  font-family:Inter,sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(124,58,237,0.18),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #020617,
+      #030712,
+      #081028
+    );
+
+  background-attachment: fixed;
+
+  color:white;
+
+  overflow-x:hidden;
+}
+
+/* =========================
+   GLOBAL PAGE LAYOUT
+========================= */
+
+.page-container{
+
+  padding:28px;
+
+  min-height:100vh;
+}
+
+/* =========================
+   GLOBAL CARD
+========================= */
+
+.glass-card{
+
+  background:
+    rgba(15,23,42,0.75);
+
+  border:
+    1px solid rgba(255,255,255,0.06);
+
+  backdrop-filter:blur(14px);
+
+  border-radius:24px;
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.28);
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+.page-title{
+
+  font-size:42px;
+
+  font-weight:800;
+
+  color:white;
+}
+
+.page-subtitle{
+
+  color:#94a3b8;
+
+  font-size:15px;
+
+  margin-top:8px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.primary-btn{
+
+  border:none;
+
+  outline:none;
+
+  padding:14px 22px;
+
+  border-radius:16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #a855f7
+    );
+
+  color:white;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:0.3s ease;
+}
+
+.primary-btn:hover{
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(168,85,247,0.3);
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+input,
+textarea,
+select{
+
+  width:100%;
+
+  background:
+    rgba(15,23,42,0.7);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  color:white;
+
+  padding:14px;
+
+  border-radius:14px;
+
+  outline:none;
+}
+
+input::placeholder,
+textarea::placeholder{
+
+  color:#64748b;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+
+  width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+
+  background:#7c3aed;
+
+  border-radius:999px;
+}

@@ -1,0 +1,40 @@
+@media (max-width: 768px) {
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .brief-grid,
+  .event-info-grid,
+  .premium-grid,
+  .insights-grid,
+  .dashboard-grid,
+  .insight-dashboard-grid,
+  .budget-overview-grid,
+  .vendors-grid,
+  .report-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-main-title,
+  .budget-title,
+  .timeline-title,
+  .vendors-title,
+  .reports-title,
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .workflow-node,
+  .timeline-block {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
