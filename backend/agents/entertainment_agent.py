@@ -6,6 +6,7 @@ from tools.entertainment_tool import (
 )
 
 import json
+from utils.parser import safe_json_parse
 
 
 def get_dynamic_entertainment(
@@ -481,7 +482,7 @@ Return format:
 
         result = result.strip()
 
-        parsed = json.loads(result)
+        parsed = safe_json_parse(result)
 
         parsed[
             "main_entertainment"

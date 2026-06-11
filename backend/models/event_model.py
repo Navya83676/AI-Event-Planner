@@ -112,6 +112,8 @@ class EventRequest(BaseModel):
 
     event_duration: str
 
+    location: str = ""
+
     venue: str
 
     theme: str = ""

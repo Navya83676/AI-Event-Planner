@@ -1,17 +1,22 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import (
-    sessionmaker,
-    declarative_base
-)
+from sqlalchemy.orm import sessionmaker, declarative_base
+import os
 
 # =========================
 # DATABASE CONFIGURATION
 # =========================
 
-DATABASE_URL = (
-    "postgresql://postgres:eventplanner123@localhost:5432/ai_event_planner"
+DATABASE_URL = os.getenv(
+    "DATABASE_URL",
+    "sqlite:///./eventplanner.db"
 )
 
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace(
+        "postgres://",
+        "postgresql://",
+        1
+    )
 # =========================
 # DATABASE ENGINE
 # =========================

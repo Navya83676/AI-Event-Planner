@@ -7,6 +7,7 @@ from tools.food_tool import (
 )
 
 import json
+from utils.parser import safe_json_parse
 
 
 def food_agent(data):
@@ -398,7 +399,7 @@ Return format:
 
         result = result.strip()
 
-        parsed = json.loads(
+        parsed = safe_json_parse(
             result
         )
 

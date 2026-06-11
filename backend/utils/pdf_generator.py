@@ -343,7 +343,10 @@ def generate_pdf(
 
         cover_info_table = Table(
         [
-        ["Client", event_data.get("customerName","N/A")],
+        ["Client",
+            event_data.get("customer_name")
+            or event_data.get("customerName")
+            or "N/A"],
         ["Date", formatted_date],
         ["Location", event_data.get("location","N/A")],
         ["Guests", str(event_data.get("guests",0))],
@@ -812,8 +815,9 @@ def generate_pdf(
         ).title()
 
         duration = (
-            event_data.get("duration")
+            event_data.get("event_duration")
             or event_data.get("eventDuration")
+            or event_data.get("duration")
             or "Full Day"
         )
 

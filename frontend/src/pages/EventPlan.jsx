@@ -147,6 +147,11 @@ console.log(
 );
 
 console.log(
+  "LOCATION VALUE:",
+  eventData?.location
+);
+
+console.log(
   "BUDGET PLAN:",
   budgetPlan
 );

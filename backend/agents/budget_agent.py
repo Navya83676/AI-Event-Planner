@@ -188,13 +188,13 @@ def budget_agent(data):
     # =========================
 
     tool_result = calculate_budget_split(
-
         budget=original_budget,
+        guests=data.get("guests",0)
+    )
 
-        guests=data.get(
-            "guests",
-            0
-        )
+    tool_result.setdefault(
+        "reserve_cost",
+        0
     )
     if not isinstance(
         tool_result,

@@ -7,6 +7,7 @@ from tools.venue_tool import (
 )
 
 import json
+from utils.parser import safe_json_parse
 
 
 def venue_agent(data):
@@ -196,7 +197,7 @@ Return format:
 
         result = result.strip()
 
-        parsed = json.loads(
+        parsed = safe_json_parse(
             result
         )
 
@@ -258,6 +259,10 @@ Return format:
         data["venueName"] = parsed["venue_name"]
 
     except Exception as e:
+
+        print("\n===== VENUE AGENT ERROR =====")
+        print(str(e))
+        print("=============================\n")
 
         data["venue"] = {
 

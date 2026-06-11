@@ -18,6 +18,10 @@ import {
 import useEvent from "../hooks/useEvent";
 
 import {
+  normalizeEventData
+} from "../context/EventContext";
+
+import {
   getEventTheme
 } from "../data/eventThemes";
 
@@ -131,22 +135,19 @@ function EventBrief() {
           formData.duration,
 
         guests:
-          parseInt(
-            formData.guests
-          ),
+          parseInt(formData.guests),
 
         budget:
-          parseInt(
-            formData.budget
-              .replace(/,/g, "")
-          ),
+          parseInt(formData.budget.replace(/,/g, "")),
 
         event_date:
           formData.date,
 
-        venue:
+        location:
           formData.location,
 
+        venue:
+          "",
 
         requirements:
           formData.requirements
@@ -299,7 +300,8 @@ function EventBrief() {
         location:
           backendData?.location ||
 
-          payload.venue,
+          payload.location,
+
         venueName:
           backendData?.venue?.venue_name || "",
         venueCapacity:
@@ -460,7 +462,9 @@ function EventBrief() {
       );
 
       setEventData(
-        finalEventData
+        normalizeEventData(
+          finalEventData
+        )
       );
 
       addActivity(

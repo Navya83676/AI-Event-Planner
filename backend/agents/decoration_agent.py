@@ -2,6 +2,7 @@ from services.llm_service import run_agent_prompt
 from langchain_core.prompts import PromptTemplate
 
 import json
+from utils.parser import safe_json_parse
 
 
 def get_dynamic_decoration(
@@ -466,7 +467,7 @@ Return format:
 
         result = result.strip()
 
-        parsed = json.loads(result)
+        parsed = safe_json_parse(result)
 
         parsed["theme_style"] = parsed.get(
 

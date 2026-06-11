@@ -111,7 +111,7 @@ const defaultEventData = {
    NORMALIZE EVENT DATA
 ========================= */
 
-const normalizeEventData = (
+export const normalizeEventData = (
   data = {}
 ) => {
 
@@ -167,7 +167,10 @@ const normalizeEventData = (
           data?.workflowData?.agents
         )
           ? data.workflowData.agents
-          : []
+          : [],
+
+      budgetPlan:
+        data?.workflowData?.budgetPlan || {}
     },
 
     budgetPlan:
@@ -213,15 +216,6 @@ export const EventProvider = ({
         )
       )
     );
-
-    useEffect(() => {
-
-  console.log(
-    "CONTEXT TIMELINE",
-    eventData.timeline
-  );
-
-}, [eventData]);
 
   /* =========================
      ACTIVITIES

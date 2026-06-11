@@ -3,6 +3,7 @@ from services.llm_service import run_agent_prompt
 from langchain_core.prompts import PromptTemplate
 
 import json
+from utils.parser import safe_json_parse
 
 
 def event_classifier_agent(data):
@@ -112,7 +113,7 @@ Return format:
 
         result = result.strip()
 
-        classification = json.loads(
+        classification = safe_json_parse(
             result
         )
         guests = int(

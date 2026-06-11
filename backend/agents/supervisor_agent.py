@@ -3,7 +3,7 @@ from services.llm_service import run_agent_prompt
 from langchain_core.prompts import PromptTemplate
 
 import json
-
+from utils.parser import safe_json_parse
 
 def supervisor_agent(state):
 
@@ -521,7 +521,7 @@ Return format:
 
         result = result.strip()
 
-        parsed = json.loads(result)
+        parsed = safe_json_parse(result)
 
         insights.extend([
 

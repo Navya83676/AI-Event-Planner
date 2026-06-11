@@ -79,33 +79,8 @@ const agentDescriptions = {
     "Building execution timeline"
 };
 
-function Workflow() {
 
-  console.count("Workflow Render");
-
-  const {
-    eventData
-  } = useContext(EventContext);
-
-  const agents =
-
-    Array.isArray(
-      eventData?.workflowData?.agents
-    )
-
-      ? eventData.workflowData.agents
-
-      : [];
-  const visibleAgents = useMemo(() => {
-
-  return agents.filter(
-    (agent) =>
-      agent.name !== "supervisor_agent" &&
-      agent.name !== "Supervisor Agent"
-  );
-
-}, [agents]);
-      const agentExecutionTimes = {
+const agentExecutionTimes = {
 
   event_classifier_agent: "9.4s",
 
@@ -125,6 +100,41 @@ function Workflow() {
 
   timeline_agent: "2.7s"
 };
+
+function Workflow() {
+
+  //console.count("Workflow Render");
+
+  const {
+    eventData
+  } = useContext(EventContext);
+
+  //console.log(
+    //"WORKFLOW EVENT DATA",
+    //eventData
+ // );
+
+  const agents =
+
+    Array.isArray(
+      eventData?.workflowData?.agents
+    )
+
+      ? eventData.workflowData.agents
+
+      : [];
+
+      
+  const visibleAgents = useMemo(() => {
+
+  return agents.filter(
+    (agent) =>
+      agent.name !== "supervisor_agent" &&
+      agent.name !== "Supervisor Agent"
+  );
+
+}, [agents]);
+         
 
   const [activeStep, setActiveStep] =
     useState(0);
@@ -157,6 +167,10 @@ function Workflow() {
   /* EXECUTION ENGINE */
 
   useEffect(() => {
+
+    if (!eventData?.workflowData?.agents?.length) {
+      return;
+    }
 
     setActiveStep(0);
 
@@ -329,7 +343,7 @@ const supervisorDelay = setTimeout(() => {
 
     };
 
-  }, [eventData]);
+  }, [eventData?.eventId]);
 
   /* PROGRESS */
 

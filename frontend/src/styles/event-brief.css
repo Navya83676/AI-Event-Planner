@@ -2,31 +2,21 @@
 
   width: 100%;
 
-  min-height: 100vh;
+  min-height: auto;
 
-  padding: 16px 24px;
+  padding: 0;
 
-   display: flex;
+  display: flex;
 
   justify-content: center;
 
   align-items: flex-start;
-
-  background:
-    linear-gradient(
-      180deg,
-      #edf2ff 0%,
-      #f8fafc 100%
-    );
-
-  overflow-x: hidden;
 }
 
 
 
 .brief-header{
-  margin-top: 0px;
-  margin-bottom: 30px;
+  margin: 0 0 20px 0;
 }
 
 .brief-header h1 {
@@ -39,7 +29,9 @@
 
   color: #0f172a;
 
-  margin-bottom: 6px;
+  margin-top: 0;
+
+  margin-bottom: 4px;
 }
 
 .brief-header p {

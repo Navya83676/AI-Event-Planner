@@ -6,6 +6,7 @@ from tools.timeline_tool import (
 )
 
 import json
+from utils.parser import safe_json_parse
 
 
 def build_duration_based_timeline(
@@ -1032,7 +1033,7 @@ Return format:
 
         result = result.strip()
 
-        parsed = json.loads(result)
+        parsed = safe_json_parse(result)
 
 
         if not isinstance(parsed, dict):

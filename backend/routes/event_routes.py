@@ -5,8 +5,10 @@ from utils.pdf_generator import generate_pdf
 import tempfile
 
 
-from fastapi import APIRouter
-from fastapi import APIRouter, Body
+from fastapi import (
+    APIRouter,
+    Body
+)
 
 from graph.workflow import build_workflow
 
@@ -32,6 +34,10 @@ def generate_event(event: EventRequest):
     print("EVENT TYPE:", event.event_type)
     print("EVENT DURATION:", event.event_duration)
     print("REQUIREMENTS:", event.requirements)
+
+    print("LOCATION:", getattr(event, "location", None))
+    print("VENUE:", event.venue)
+
     print("=" * 50)
 
     db = SessionLocal()
@@ -100,6 +106,10 @@ def generate_event(event: EventRequest):
             initial_state
         )
 
+        print("\n===== INITIAL STATE =====")
+        print(json.dumps(initial_state, indent=2, default=str))
+        print("=========================\n")
+
         print("VENUE AFTER WORKFLOW")
         print(result.get("venue"))
 
@@ -118,7 +128,13 @@ def generate_event(event: EventRequest):
                 "capacity": 0,
                 "estimated_cost": 0
             }
-        result["theme"] = getattr(event, "theme", "")
+        result["theme"] = result.get(
+            "theme",
+            result.get(
+                "recommended_theme",
+                ""
+            )
+        )
         result["requirements"] = event.requirements
 
         result["readiness_score"] = 95
@@ -209,8 +225,7 @@ def generate_event(event: EventRequest):
             venue=
                 event.venue,
             theme=
-                getattr(
-                    event,
+                result.get(
                     "theme",
                     ""
                 ),
