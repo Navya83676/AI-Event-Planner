@@ -747,8 +747,13 @@ def download_report(
             print("PDF GENERATED SUCCESSFULLY")
 
         except Exception as e:
+            print("=" * 100)
             print("PDF GENERATION FAILED")
+            print(type(e))
             print(str(e))
+            import traceback
+            traceback.print_exc()
+            print("=" * 100)
             raise e
 
         print("=" * 80)
