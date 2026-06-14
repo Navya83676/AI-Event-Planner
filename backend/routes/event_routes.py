@@ -754,8 +754,8 @@ def download_report(
         if os.path.exists(pdf_path):
             print("PDF SIZE:", os.path.getsize(pdf_path))
 
-        with open(pdf_path, "rb") as f:
-            print("FIRST 20 BYTES:", f.read(20))
+            with open(pdf_path, "rb") as f:
+              print("FIRST 20 BYTES:", f.read(20))
 
         print("=" * 80)
 
