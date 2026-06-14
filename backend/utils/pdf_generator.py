@@ -637,7 +637,7 @@ def generate_pdf(
             Spacer(1,20)
         )
 
-        if event_image and os.path.exists(event_image):
+        if False:
             try:
                 event_img = Image(
                     event_image,
@@ -2367,10 +2367,29 @@ def generate_pdf(
 
         print("BUILDING PDF")
 
-        doc.build(
-            elements,
-            onFirstPage=add_page_number,
-            onLaterPages=add_page_number
-        )
+        try:
+
+            print("=" * 50)
+            print("STARTING PDF BUILD")
+            print("=" * 50)
+
+            doc.build(
+                elements,
+                onFirstPage=add_page_number,
+                onLaterPages=add_page_number
+            )
+
+            print("=" * 50)
+            print("PDF BUILD SUCCESS")
+            print("=" * 50)
+
+        except Exception as e:
+
+            print("=" * 50)
+            print("PDF BUILD FAILED")
+            print(str(e))
+            print("=" * 50)
+
+            raise e
 
         print("PDF BUILD COMPLETE")

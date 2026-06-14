@@ -769,6 +769,12 @@ def download_report(
 
         print("=" * 80)
 
+        print("=" * 80)
+        print("RETURNING FILE RESPONSE")
+        print("PATH:", pdf_path)
+        print("EXISTS:", os.path.exists(pdf_path))
+        print("=" * 80)
+
         return FileResponse(
             path=pdf_path,
             media_type="application/pdf",
