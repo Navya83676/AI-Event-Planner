@@ -11,6 +11,10 @@ DATABASE_URL = os.getenv(
     "sqlite:///./eventplanner.db"
 )
 
+print("=" * 50)
+print("DATABASE URL:", DATABASE_URL)
+print("=" * 50)
+
 if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace(
         "postgres://",
