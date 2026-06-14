@@ -533,6 +533,11 @@ def download_report(
     event_id: int,
     frontend_data: dict = Body(...)
 ):
+    
+    print("=" * 100)
+    print("DOWNLOAD REPORT ROUTE HIT")
+    print("EVENT ID:", event_id)
+    print("=" * 100)
 
     db = SessionLocal()
 
