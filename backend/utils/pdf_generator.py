@@ -2365,8 +2365,12 @@ def generate_pdf(
         # BUILD PDF
         # =========================
 
+        print("BUILDING PDF")
+
         doc.build(
-        elements,
-        onFirstPage=add_page_number,
-        onLaterPages=add_page_number
-    )
+            elements,
+            onFirstPage=add_page_number,
+            onLaterPages=add_page_number
+        )
+
+        print("PDF BUILD COMPLETE")

@@ -542,8 +542,22 @@ def download_report(
         print("FRONTEND DATA")
         print(frontend_data)
         print("=" * 50)
-        print("FRONTEND DATA")
-        print(frontend_data)
+        print("=" * 50)
+        print("FOOD")
+        print(frontend_data.get("food"))
+
+        print("=" * 50)
+        print("DECORATION")
+        print(frontend_data.get("decoration"))
+
+        print("=" * 50)
+        print("ENTERTAINMENT")
+        print(frontend_data.get("entertainment"))
+
+        print("=" * 50)
+        print("SECURITY")
+        print(frontend_data.get("security"))
+
         print("=" * 50)
 
         event = db.query(Event).filter(
@@ -717,10 +731,20 @@ def download_report(
         if "budget_plan" in pdf_data:
             pdf_data["budgetPlan"] = pdf_data["budget_plan"]
 
-        generate_pdf(
-            pdf_data,
-            pdf_path
-        )
+        try:
+            print("STARTING PDF GENERATION")
+
+            generate_pdf(
+                pdf_data,
+                pdf_path
+            )
+
+            print("PDF GENERATED SUCCESSFULLY")
+
+        except Exception as e:
+            print("PDF GENERATION FAILED")
+            print(str(e))
+            raise e
 
         print("=" * 80)
         print("PDF GENERATED")
@@ -729,6 +753,9 @@ def download_report(
 
         if os.path.exists(pdf_path):
             print("PDF SIZE:", os.path.getsize(pdf_path))
+
+        with open(pdf_path, "rb") as f:
+            print("FIRST 20 BYTES:", f.read(20))
 
         print("=" * 80)
 
