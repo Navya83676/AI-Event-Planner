@@ -165,7 +165,10 @@ def generate_pdf(
         # DYNAMIC READINESS CALCULATION
         # ==================================
 
-        readiness_score = 0
+        readiness_score = event_data.get(
+            "readiness_score",
+            0
+        )
 
         if event_data.get("venue"):
             readiness_score += 20
@@ -272,9 +275,9 @@ def generate_pdf(
                 frontend_image
             )
 
-            event_type = os.path.dirname(
-                frontend_image
-            ).split("/")[-1]
+            event_type = os.path.basename(
+                os.path.dirname(frontend_image)
+            )
 
         BASE_DIR = os.path.dirname(
             os.path.dirname(__file__)
@@ -283,6 +286,7 @@ def generate_pdf(
 
         print("PDF IMAGE:")
         print(event_data.get("image"))
+
 
         frontend_image = event_data.get("image")
 
@@ -300,6 +304,18 @@ def generate_pdf(
                 event_type,
                 image_name
             )
+
+
+            print("=" * 50)
+            print("EVENT TYPE:", event_type)
+            print("IMAGE NAME:", image_name)
+            print("FULL PATH:", event_image)
+            print("FILE EXISTS:", os.path.exists(event_image))
+            print("=" * 50)
+
+            print("FILE EXISTS:")
+            print(os.path.exists(event_image))
+            
         print("=" * 50)
         print("PDF IMAGE:")
         print(frontend_image)
@@ -1111,6 +1127,11 @@ def generate_pdf(
             {}
         )
 
+        print("=" * 80)
+        print("PDF FOOD DATA")
+        print(food)
+        print("=" * 80)
+
         if food:
 
             elements.append(PageBreak())
@@ -1176,6 +1197,11 @@ def generate_pdf(
             "decoration",
             {}
         )
+
+        print("=" * 80)
+        print("PDF DECORATION DATA")
+        print(decoration)
+        print("=" * 80)
 
         if decoration:
 
@@ -1268,6 +1294,11 @@ def generate_pdf(
             "entertainment",
             {}
         )
+
+        print("=" * 80)
+        print("PDF ENTERTAINMENT DATA")
+        print(entertainment)
+        print("=" * 80)
 
         
 

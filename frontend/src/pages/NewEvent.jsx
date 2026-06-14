@@ -72,9 +72,28 @@ if (
   response?.data
 ) {
 
-  setEventData(
-    response.data
-  );
+  console.log(
+  "DATA BEING SAVED",
+  JSON.stringify(response.data, null, 2)
+);
+
+  console.log("FULL RESPONSE", response);
+
+  localStorage.removeItem("eventData");
+
+  setEventData({
+  ...response.data,
+
+  eventId: response.event_id,
+
+  eventName: response.data.event_name,
+
+  eventType: response.data.event_type,
+
+  eventDate: response.data.event_date,
+
+  customerName: response.data.customer_name
+});
 
   alert(
     "Event Generated Successfully"

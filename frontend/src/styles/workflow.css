@@ -600,7 +600,7 @@
   border-radius: 28px;
 
   background:
-    rgba(15,23,42,0.82);
+    rgba(15,23,42,0.96);
 
   backdrop-filter: blur(18px);
 
@@ -664,15 +664,23 @@
 /* STATES */
 
 .completed-node {
+  border-color: rgba(34,197,94,0.4);
 
-  border-color:
-    rgba(34,197,94,0.3);
+  box-shadow:
+    0 0 20px rgba(34,197,94,0.08),
+    0 10px 30px rgba(0,0,0,0.24);
 }
 
 .active-node {
 
-  border-color:
-    rgba(168,85,247,0.55);
+   border-color: rgba(168,85,247,0.8);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(25,35,65,0.98),
+      rgba(15,23,42,0.95)
+    );
 
   box-shadow:
     0 0 35px rgba(139,92,246,0.18);
@@ -682,8 +690,7 @@
 }
 
 .pending-node {
-
-  opacity: 0.55;
+  border-color: rgba(148,163,184,0.18);
 }
 
 @keyframes pulseGlow {
@@ -781,7 +788,9 @@
 
 .agent-node h3 {
 
-  color: white;
+  color: #f8fafc;
+
+  text-shadow: 0 0 12px rgba(255,255,255,0.15);
 
   font-size: 24px;
 
@@ -796,7 +805,7 @@
 
 .agent-node p {
 
-  color: #94a3b8;
+  color: #cbd5e1;
 
   font-size: 15px;
 

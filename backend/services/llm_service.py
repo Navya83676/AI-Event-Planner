@@ -67,8 +67,14 @@ def run_agent_prompt(
         | llm
     )
 
+    print("\n===== LLM REQUEST =====")
+    print(variables)
+
     response = chain.invoke(
         variables
     )
+
+    print("\n===== LLM RESPONSE =====")
+    print(response.content)
 
     return response.content

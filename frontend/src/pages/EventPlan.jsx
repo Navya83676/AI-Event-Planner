@@ -28,6 +28,11 @@ function EventPlan() {
     eventData
   } = useContext(EventContext);
 
+  console.log(
+    "PLAN PAGE DATA",
+    eventData
+  );
+
  const handleDownloadReport = async () => {
 
   console.log(
@@ -37,8 +42,42 @@ function EventPlan() {
 
   try {
 
+
+    const pdfData = {
+      ...eventData,
+      image:
+        eventData?.image ||
+        eventThemeData?.image
+    };
+
+    console.log("=================================");
+    console.log("PDF DATA SENT");
+    console.log(pdfData);
+    console.log("IMAGE:", pdfData.image);
+    console.log("EVENT IMAGE:", eventData?.image);
+    console.log("THEME IMAGE:", eventThemeData?.image);
+    console.log("=================================");
+
+    console.log("PDF DATA SENT:", pdfData);
+
+    console.log(
+      "CURRENT EVENT ID:",
+      eventData.eventId
+    );
+
+
+    console.log(
+    "PDF EVENT NAME",
+    eventData.eventName
+    );
+
+    console.log(
+      "EVENT ID USED FOR PDF =",
+      eventData?.eventId
+    );
+
     const response = await fetch(
-      `https://ai-event-planner-sjgz.onrender.com/events/${eventData.eventId}/report`,
+      `http://127.0.0.1:8000/events/${eventData.eventId}/report`,
       {
         method: "POST",
 
@@ -46,9 +85,29 @@ function EventPlan() {
           "Content-Type": "application/json"
         },
 
-        body: JSON.stringify(eventData)
+        body: JSON.stringify(pdfData)
       }
     );
+
+    console.log(
+      "STATUS:",
+      response.status
+    );
+
+    console.log(
+      "CONTENT TYPE:",
+      response.headers.get("content-type")
+    );
+
+
+    if (!response.ok) {
+
+      const text = await response.text();
+
+      console.log(text);
+
+      throw new Error(text);
+    }
 
     const blob = await response.blob();
 

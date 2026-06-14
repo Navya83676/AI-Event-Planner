@@ -122,10 +122,31 @@ export const normalizeEventData = (
     ...data,
 
     eventId:
-      data?.eventId || null,
+      data?.eventId ||
+      data?.event_id ||
+      null,
 
     customerName:
-       data?.customerName || "",
+      data?.customerName ||
+      data?.customer_name ||
+      "",
+       
+
+
+    eventName:
+      data?.eventName ||
+      data?.event_name ||
+      "",
+
+    eventType:
+      data?.eventType ||
+      data?.event_type ||
+      "",
+
+    eventDate:
+      data?.eventDate ||
+      data?.event_date ||
+      "",
 
     venue:
       typeof data?.venue === "object"

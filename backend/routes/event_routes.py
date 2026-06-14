@@ -4,6 +4,8 @@ from utils.pdf_generator import generate_pdf
 
 import tempfile
 
+import os
+
 
 from fastapi import (
     APIRouter,
@@ -535,6 +537,10 @@ def download_report(
     db = SessionLocal()
 
     try:
+
+
+        print("FRONTEND DATA")
+        print(frontend_data)
         print("=" * 50)
         print("FRONTEND DATA")
         print(frontend_data)
@@ -544,14 +550,16 @@ def download_report(
             Event.id == event_id
         ).first()
 
+        print("EVENT ID REQUESTED:", event_id)
+
         if not event:
-
             return {
-
                 "success": False,
-
                 "message": "Event not found"
             }
+
+        print("DB EVENT NAME:", event.event_name)
+        print("DB EVENT TYPE:", event.event_type)
 
         temp_file = tempfile.NamedTemporaryFile(
             delete=False,
@@ -562,31 +570,97 @@ def download_report(
 
         pdf_path = temp_file.name
 
-        pdf_data = dict(
-            event.workflow_data or {}
+       # pdf_data = frontend_data.copy()
+
+        #workflow_data = event.workflow_data or {}
+
+        #for key, value in workflow_data.items():
+           # if key not in pdf_data or not pdf_data.get(key):
+                #pdf_data[key] = value
+        pdf_data = frontend_data.copy()
+
+        print("=" * 80)
+        print("USING ONLY FRONTEND DATA")
+        print("=" * 80)
+
+
+        print("=" * 100)
+        print("EVENT ID:", event_id)
+
+        print("EVENT NAME:")
+        print(
+            pdf_data.get("eventName")
+            or pdf_data.get("event_name")
         )
 
-        # Merge frontend data
+        print("TIMELINE:")
+        print(pdf_data.get("timeline"))
 
-        pdf_data.update(
-            frontend_data
+        print("VENDORS:")
+        print(pdf_data.get("vendors"))
+
+        print("BUDGET:")
+        print(
+            pdf_data.get("budgetPlan")
+            or pdf_data.get("budget_plan")
         )
 
-        pdf_data["customer_name"] = event.customer_name
-        pdf_data["event_name"] = event.event_name
-        pdf_data["event_type"] = event.event_type
-        pdf_data["event_duration"] = event.event_duration
-        pdf_data["guests"] = event.guests
-        pdf_data["budget"] = event.budget
-        pdf_data["event_date"] = str(event.event_date)
-        pdf_data["venue"] = event.workflow_data.get(
-            "venue",
-            {
+        print("=" * 100)
+
+        pdf_data["customer_name"] = (
+            frontend_data.get("customerName")
+            or frontend_data.get("customer_name")
+            or event.customer_name
+        )
+
+        pdf_data["event_name"] = (
+            frontend_data.get("eventName")
+            or frontend_data.get("event_name")
+            or event.event_name
+        )
+
+        pdf_data["event_type"] = (
+            frontend_data.get("eventType")
+            or frontend_data.get("event_type")
+            or event.event_type
+        )
+
+        pdf_data["event_duration"] = frontend_data.get(
+            "duration",
+            event.event_duration
+        )
+
+        pdf_data["guests"] = frontend_data.get(
+            "guests",
+            event.guests
+        )
+
+        pdf_data["budget"] = frontend_data.get(
+            "budget",
+            event.budget
+        )
+
+        pdf_data["event_date"] = (
+            frontend_data.get("eventDate")
+            or frontend_data.get("event_date")
+            or str(event.event_date)
+        )
+        pdf_data["venue"] = (
+            frontend_data.get("venue")
+            or {
                 "venue_name": event.venue
             }
         )
-        pdf_data["theme"] = event.theme
-        pdf_data["requirements"] = event.requirements
+
+        pdf_data["theme"] = (
+            frontend_data.get("theme")
+            or event.theme
+        )
+
+        pdf_data["requirements"] = frontend_data.get(
+            "requirements",
+            event.requirements
+        )
 
         pdf_data["status"] = event.status
 
@@ -597,13 +671,6 @@ def download_report(
 
         pdf_data["plannerName"] = "Navya"
         pdf_data["plannerEmail"] = "navya@gmail.com"
-        pdf_data["plannerRole"] = "Event Planner"
-
-
-        pdf_data["plannerName"] = "Navya"
-
-        pdf_data["plannerEmail"] = "navya@gmail.com"
-
         pdf_data["plannerRole"] = "Event Planner"
         print("=" * 50)
 
@@ -618,11 +685,52 @@ def download_report(
         print("=" * 50)
 
         
+        print("=" * 80)
+        print("FINAL PDF DATA")
+        print(pdf_data)
+        print("=" * 80)
+
+        print("=" * 80)
+        print("FINAL PDF DATA")
+        print(pdf_data)
+
+        print("=" * 80)
+        print("TIMELINE")
+        print(pdf_data.get("timeline"))
+
+        print("=" * 80)
+        print("VENDORS")
+        print(pdf_data.get("vendors"))
+
+        print("=" * 80)
+        print("BUDGET PLAN")
+        print(
+            pdf_data.get("budgetPlan")
+            or pdf_data.get("budget_plan")
+        )
+
+        print("=" * 80)
+
+        if "budgetPlan" in pdf_data:
+            pdf_data["budget_plan"] = pdf_data["budgetPlan"]
+
+        if "budget_plan" in pdf_data:
+            pdf_data["budgetPlan"] = pdf_data["budget_plan"]
 
         generate_pdf(
             pdf_data,
             pdf_path
         )
+
+        print("=" * 80)
+        print("PDF GENERATED")
+        print("PDF PATH:", pdf_path)
+        print("PDF EXISTS:", os.path.exists(pdf_path))
+
+        if os.path.exists(pdf_path):
+            print("PDF SIZE:", os.path.getsize(pdf_path))
+
+        print("=" * 80)
 
         return FileResponse(
             path=pdf_path,

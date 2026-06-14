@@ -3,10 +3,15 @@ from services.llm_service import run_agent_prompt
 from langchain_core.prompts import PromptTemplate
 
 import json
+
 from utils.parser import safe_json_parse
 
 
 def event_classifier_agent(data):
+
+    print("\n===== EVENT CLASSIFIER STARTED =====")
+    print("INPUT DATA:")
+    print(data)
 
     if "execution_flow" not in data:
 
@@ -73,6 +78,8 @@ Return format:
 
     try:
 
+        print("CALLING GROQ...")
+
         result = run_agent_prompt(
 
             prompt,
@@ -113,9 +120,16 @@ Return format:
 
         result = result.strip()
 
+        print("\n===== RAW LLM RESPONSE =====")
+        print(result)
+
         classification = safe_json_parse(
             result
         )
+
+        print("\n===== PARSED JSON =====")
+        print(classification)
+
         guests = int(
             data.get(
                 "guests",
@@ -214,7 +228,12 @@ Return format:
         """
         })
 
+        print("\n===== CLASSIFIER COMPLETED SUCCESSFULLY =====")
+
     except Exception as e:
+
+        print("\n===== CLASSIFIER ERROR =====")
+        print(str(e))
 
         data["classification"] = {
 
