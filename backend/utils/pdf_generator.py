@@ -637,8 +637,16 @@ def generate_pdf(
             Spacer(1,20)
         )
 
-        if False:
+        if event_image and os.path.exists(event_image):
+
             try:
+
+                print("=" * 50)
+                print("ADDING IMAGE TO PDF")
+                print(event_image)
+                print(os.path.exists(event_image))
+                print("=" * 50)
+                
                 event_img = Image(
                     event_image,
                     width=420,

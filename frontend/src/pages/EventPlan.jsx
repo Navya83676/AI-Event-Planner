@@ -40,6 +40,18 @@ function EventPlan() {
     eventData
   );
 
+  console.log("FOOD:", eventData?.food);
+
+  console.log("DECORATION:", eventData?.decoration);
+
+  console.log("ENTERTAINMENT:", eventData?.entertainment);
+
+  console.log("SECURITY:", eventData?.security);
+
+  console.log("TIMELINE:", eventData?.timeline);
+
+  console.log("VENDORS:", eventData?.vendors);
+
   try {
 
 
@@ -77,7 +89,7 @@ function EventPlan() {
     );
 
     const response = await fetch(
-      `https://ai-event-planner-sjgz.onrender.com/events/${eventData.eventId}/report`,
+      `http://127.0.0.1:8000/events/${eventData.eventId}/report`,
       {
         method: "POST",
 
@@ -203,6 +215,21 @@ function EventPlan() {
 console.log(
   "EVENT DATA:",
   eventData
+);
+
+console.log(
+  "FOOD DATA:",
+  eventData?.food
+);
+
+console.log(
+  "DECORATION DATA:",
+  eventData?.decoration
+);
+
+console.log(
+  "ENTERTAINMENT DATA:",
+  eventData?.entertainment
 );
 
 console.log(

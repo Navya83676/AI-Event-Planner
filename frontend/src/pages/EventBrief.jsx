@@ -381,12 +381,25 @@ function EventBrief() {
 
         budgetPlan:
           backendData?.budget_plan || {},
+
         security:
           backendData?.security || {},
+
         classification:
           backendData?.classification || {},
+
+        food:
+          backendData?.food || {},
+
+        decoration:
+          backendData?.decoration || {},
+
+        entertainment:
+          backendData?.entertainment || {},
+
         theme:
-           backendData?.theme || "",
+          backendData?.theme || "",
+
         venue:
           backendData?.venue || {},
 
@@ -411,6 +424,26 @@ function EventBrief() {
 
             
       };
+
+      console.log(
+        "FINAL STORED EVENT DATA:",
+        finalEventData
+      );
+
+      console.log(
+        "STORED FOOD:",
+        finalEventData.food
+      );
+
+      console.log(
+        "STORED DECORATION:",
+        finalEventData.decoration
+      );
+
+      console.log(
+        "STORED ENTERTAINMENT:",
+        finalEventData.entertainment
+      );
 
       console.log(
         "FINAL STORED EVENT DATA:",

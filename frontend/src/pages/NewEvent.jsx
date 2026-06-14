@@ -53,6 +53,21 @@ function NewEvent() {
 
       const response = await generateEventPlan(formData);
 
+ console.log(
+  "FOOD FROM API",
+  response?.data?.food
+);
+
+console.log(
+  "DECORATION FROM API",
+  response?.data?.decoration
+);
+
+console.log(
+  "ENTERTAINMENT FROM API",
+  response?.data?.entertainment
+);     
+
 console.log(
   "API RESPONSE:",
   response

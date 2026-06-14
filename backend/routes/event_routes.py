@@ -707,11 +707,9 @@ def download_report(
         print("=" * 80)
         print("FINAL PDF DATA")
         print(pdf_data)
-        print("=" * 80)
 
-        print("=" * 80)
-        print("FINAL PDF DATA")
-        print(pdf_data)
+        
+
 
         print("=" * 80)
         print("TIMELINE")
@@ -738,6 +736,20 @@ def download_report(
 
         try:
             print("STARTING PDF GENERATION")
+
+            print("=" * 80)
+            print("PDF DATA KEYS")
+            print(pdf_data.keys())
+
+            print("FOOD:")
+            print(pdf_data.get("food"))
+
+            print("DECORATION:")
+            print(pdf_data.get("decoration"))
+
+            print("ENTERTAINMENT:")
+            print(pdf_data.get("entertainment"))
+            print("=" * 80)
 
             generate_pdf(
                 pdf_data,
