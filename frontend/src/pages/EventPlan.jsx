@@ -62,6 +62,15 @@ function EventPlan() {
         eventThemeData?.image
     };
 
+    console.log(
+      "FULL PDF PAYLOAD",
+      JSON.stringify(
+        pdfData,
+        null,
+        2
+      )
+    );
+
     console.log("=================================");
     console.log("PDF DATA SENT");
     console.log(pdfData);
