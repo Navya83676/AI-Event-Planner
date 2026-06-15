@@ -58,21 +58,18 @@ export const generateEventPlan =
 ========================= */
 
 export const downloadReport =
-  async (eventData) => {
+  async (eventId, eventData) => {
 
     try {
 
       const response =
-        await API.post(
-
-          "/download-report",
-
-          eventData,
-
-          {
-            responseType: "blob"
-          }
-        );
+      await API.post(
+        `/events/${eventId}/report`,
+        eventData,
+        {
+          responseType: "blob"
+        }
+      );
 
       return response.data;
 

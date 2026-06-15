@@ -98,7 +98,7 @@ function EventPlan() {
     );
 
     const response = await fetch(
-       `https://ai-event-planner-sigz.onrender.com/events/${eventData.eventId}/report`,
+      `https://ai-event-planner-sjgz.onrender.com/events/${eventData.eventId}/report`,
       {
         method: "POST",
 
