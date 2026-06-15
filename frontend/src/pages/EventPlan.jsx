@@ -371,7 +371,7 @@ const remainingBudget =
   ========================= */
 
  const readinessScore = Math.min(
-  95,
+  100,
 
   (
 
