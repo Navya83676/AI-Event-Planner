@@ -275,10 +275,6 @@ def generate_pdf(
                 frontend_image
             )
 
-            event_type = os.path.basename(
-                os.path.dirname(frontend_image)
-            )
-
         BASE_DIR = os.path.dirname(
             os.path.dirname(__file__)
         )
@@ -288,33 +284,90 @@ def generate_pdf(
         print(event_data.get("image"))
 
 
-        frontend_image = event_data.get("image")
+        event_type = (
+            event_data.get("eventType")
+            or event_data.get("event_type")
+            or ""
+        ).lower()
 
         event_image = None
 
-        if frontend_image:
-
-            image_name = os.path.basename(
-                frontend_image
-            )
+        if "wedding" in event_type:
 
             event_image = os.path.join(
                 BASE_DIR,
                 "assets",
-                event_type,
-                image_name
+                "wedding",
+                "wedding3.jpeg"
             )
 
+        elif "music" in event_type:
 
-            print("=" * 50)
-            print("EVENT TYPE:", event_type)
-            print("IMAGE NAME:", image_name)
-            print("FULL PATH:", event_image)
-            print("FILE EXISTS:", os.path.exists(event_image))
-            print("=" * 50)
+            event_image = os.path.join(
+                BASE_DIR,
+                "assets",
+                "music",
+                "music3.jpeg"
+            )
 
-            print("FILE EXISTS:")
-            print(os.path.exists(event_image))
+        elif "conference" in event_type:
+
+            event_image = os.path.join(
+                BASE_DIR,
+                "assets",
+                "conference",
+                "conference3.jpeg"
+            )
+
+        elif "fashion" in event_type:
+
+            event_image = os.path.join(
+                BASE_DIR,
+                "assets",
+                "fashion",
+                "fashion3.jpg"
+            )
+
+        elif "gaming" in event_type:
+
+            event_image = os.path.join(
+                BASE_DIR,
+                "assets",
+                "gaming",
+                "gaming2.jpeg"
+            )
+
+        elif "hackathon" in event_type:
+
+            event_image = os.path.join(
+                BASE_DIR,
+                "assets",
+                "hackathon",
+                "hackathon3.jpeg"
+            )
+
+        print("=" * 50)
+        print("EVENT TYPE:", event_type)
+        print("EVENT IMAGE:", event_image)
+        print("FILE EXISTS:", os.path.exists(event_image))
+        print("=" * 50)
+
+        print("=" * 80)
+        print("IMAGE NAME:", image_name)
+        print("EVENT IMAGE:", event_image)
+        print("FILE EXISTS:", os.path.exists(event_image))
+        print("=" * 80)
+
+
+        print("=" * 50)
+        print("EVENT TYPE:", event_type)
+        print("IMAGE NAME:", image_name)
+        print("FULL PATH:", event_image)
+        print("FILE EXISTS:", os.path.exists(event_image))
+        print("=" * 50)
+
+        print("FILE EXISTS:")
+        print(os.path.exists(event_image))
             
         print("=" * 50)
         print("PDF IMAGE:")
